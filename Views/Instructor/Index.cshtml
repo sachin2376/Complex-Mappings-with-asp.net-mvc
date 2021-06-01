@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model List<ComplexExample.Models.Instructor>
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+</head>
+
+@*<span class=""></span>*@
+<h3 class="text-secondary float-start"> Students </h3>
+<hr class="my-4" />
+@*<p class="display-6 text-danger">@ViewBag.error </p>*@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Hire Date</th>
+            <th colspan="2" scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instructor in Model)
+        {
+
+            <tr>
+                <th scope="row">@instructor.Id</th>
+                <td>@instructor.FullName</td>
+                <td>@instructor.HireDate</td>
+                <td>@Html.ActionLink("Update", "UpdateStudent", "Admin", new { id = instructor.Id }) . @Html.ActionLink("Delete", "DeleteStudent", "Admin", new { id = instructor.Id })</td>
+
+            </tr>
+
+
+        }
+
+    </tbody>
+</table>
+<br />
+@*<p class="btn btn-outline-primary float-start">@Html.ActionLink("Logout", "LogoutAdmin", "Admin", new { @class = "badge badge-primary" })</p>*@

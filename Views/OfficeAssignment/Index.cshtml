@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<ComplexExample.Models.OfficeAssignment>
+
+<h3 class="text-secondary float-start"> Students </h3>
+<hr class="my-4" />
+@*<p class="display-6 text-danger">@ViewBag.error </p>*@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Instrucotr Id</th>
+            <th scope="col">Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Model)
+        {
+
+        <tr>
+            <th scope="row">@assignment.InstructorId</th>
+            <td>@assignment.Location</td>
+            <td>@Html.ActionLink("Update", "UpdateStudent", "Admin", new { id = assignment.InstructorId }) . @Html.ActionLink("Delete", "DeleteStudent", "Admin", new { id = assignment.InstructorId })</td>
+        </tr>
+
+
+        }
+
+    </tbody>
+</table>
